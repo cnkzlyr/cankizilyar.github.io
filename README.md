@@ -1,2 +1,1 @@
-# cankizilyar.github.io
-Work in progress...
+# cnkzlyr.github.io
