@@ -59,7 +59,8 @@ nav a:hover {
   right: 0; /* Açılır pencerenin ekranın sağ tarafına taşınması için */
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content,
+.dropdown.clicked .dropdown-content {
   display: block;
 }
 

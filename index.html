@@ -60,5 +60,16 @@
 	  <a href="https://avukat.uyap.gov.tr/main/avukat/index.jsp?v=3783" target="_blank"><img src="avukat-portal-logo.png" width="80" height="14" alt="Avukat Uyap Portalı"></a>
     </div>
   </footer>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+    var dropdowns = document.querySelectorAll(".dropdown");
+
+    dropdowns.forEach(function(dropdown) {
+      dropdown.addEventListener("click", function() {
+        this.classList.toggle("clicked");
+      });
+    });
+  });
+</script>
 </body>
 </html>
