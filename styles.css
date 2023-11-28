@@ -6,7 +6,19 @@ body {
 }
 
 #container {
-  margin-top: 38px; 
+  margin-top: 118px; 
+}
+
+.site-header {
+  position: fixed;
+  width: 100%;
+  background-color: navy;
+  z-index: 101;
+}
+
+.site-header img {
+  height: 50px; /* İstediğiniz yüksekliği ayarlayın */
+  padding: 10px; /* Logo etrafındaki boşluğu ayarlayın */
 }
 
 header {
@@ -24,13 +36,26 @@ header img {
   height: auto;
 }
 
+.mobile-menu-button {
+  display: block;
+  background-color: navy;
+  color: #fff;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1001; /* Diğer elemanların üzerinde olmasını sağlar */
+}
+
+
 nav {
   background-color: navy;
   border-radius: 0;
   width: 100%;
   margin-left: auto;
   position: fixed;
-  top: 0;
+  top: 60px; /* Logo yüksekliği ile uyumlu olacak şekilde ayarlayın */
   right: 0;
   z-index: 99;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Box shadow ekleyerek footer'ı belirginleştirin */
