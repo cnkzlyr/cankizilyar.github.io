@@ -1,137 +1,161 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
 
 #container {
-    margin-top: 50px; /* Gezinme çubuğu yüksekliği kadar içeriğin başlangıcını aşağıya kaydır */
+  margin-top: 38px; 
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    text-align: left;
-    padding: 5px;
-    font-size: 12px;
-    display: flex;
-    justify-content: space-between; /* Sağa ve sola yaslanması için */
-    align-items: center;
-    border-radius: 0;
-    width: calc(100% - 20px); /* Sağ ve sol padding hesaba katılarak genişlik belirleniyor */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
 }
 
-#logo img {
-    margin-right: 10px;
-    border-radius: 0; /* Yuvarlaklık olmaması için */
+header a {
+  display: block;
 }
 
-#title {
-    text-align: left;
-    flex-grow: 1; /* Başlık alanının tüm boşluğu kaplaması için */
-}
-
-#title h1 {
-    margin: 0;
+header img {
+  height: auto;
 }
 
 nav {
-    background-color: #333;
-    border-radius: 0; /* Yuvarlaklık olmaması için */
-    width: calc(100% - 160px); /* Ekranın sağ tarafına taşımak ve genişliği ayarlamak için */
-    margin-left: auto; /* Ekranın ortasından sağa kaydırmak için */
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 1000; /* Diğer elemanların üstünde kalması için bir z-index değeri belirle */
+  background-color: navy;
+  border-radius: 0;
+  width: 100%;
+  margin-left: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 99;
 }
 
 nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end; /* Menüyü sağa yaslamak için */
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  z-index: 99
+}
+
+nav ul li {
+  margin-right: 10px;
 }
 
 nav a {
-    text-decoration: none;
-    color: #fff;
-    padding: 10px;
-    display: block;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+  display: block;
 }
 
 nav a:hover {
-    background-color: #555;
+  background-color: #000031;
 }
 
 .dropdown {
-    position: relative;
+  position: relative;
+  display: inline-block;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #333;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    border-radius: 0 0 10px 10px;
-    right: 0; /* Açılır pencerenin ekranın sağ tarafına taşınması için */
+  display: none;
+  position: absolute;
+  background-color: #350331;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  border-radius: 0 0 10px 10px;
+  right: 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s, transform 0.3s;
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 section {
-    text-align: center;
-    padding: 20px;
-    background-color: #fff;
-    color: #333;
-    border-radius: 10px;
-    margin-bottom: 20px;
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+  color: #333;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 section h2 {
-    color: #333;
-}
-
-section ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-section img {
-    margin: 0 10px;
-    border-radius: 10px;
+  color: #333;
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 8px;
-    width: 100%;
-    font-size: 14px;
-    border-radius: 0; /* Yuvarlaklık olmaması için */
-    position: fixed;
-    bottom: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background-color: navy;
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  width: 100%;
+  font-size: 14px;
+  border-radius: 0;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #social-media-icons,
 #useful-links-icons {
-    display: flex;
+  display: flex;
 }
 
 #social-media-icons a {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 #useful-links-icons a {
-    margin-left: 10px;
+  margin-left: 10px;
+}
+
+/* Hover efekti için alt çizgi */
+nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.5s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Dropdown menüsü animasyonu */
+.dropdown-content {
+  transform-origin: top;
+  transform: scaleY(0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.dropdown:hover .dropdown-content {
+  transform: scaleY(1);
+  animation: genie 0.3s ease-in-out;
+}
+
+@keyframes genie {
+  0% {
+    transform: scaleY(0.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
 }
