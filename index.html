@@ -44,7 +44,11 @@
             <style>
             	.banner {
 				    padding-top: 100px; /* Adjust the value to create enough space between the navbar and the banner text */
-		                }
+				}
+            	
+				.banner h1 {
+				    margin: 20px; /* Adjust the value to fine-tune the vertical position of the text */
+				}
             		
 				.nav-container {
 					display: flex;
@@ -67,15 +71,15 @@
 					transform-origin: top;
 					transform: scaleY(0);
 					transition: transform 0.3s ease-in-out;
-					border-radius: 0 0 8px 8px; /* Alt köşeleri yuvarlamak için */
+					border-radius: 0 0 12px 12px; /* Alt köşeleri yuvarlamak için */
 				}
 			
 				/* Alt menülere boşluk ekleyin */
 				.dropdown-content a {
-					margin-bottom: 5px; /* Ya da boşluğu istediğiniz miktarla ayarlayabilirsiniz */
+					margin-bottom: 3px; /* Ya da boşluğu istediğiniz miktarla ayarlayabilirsiniz */
 					display: block;
 					color: #333;
-					padding: 12px 16px;
+					padding: 6px 8px;
 					text-decoration: none;
 				}
 			
