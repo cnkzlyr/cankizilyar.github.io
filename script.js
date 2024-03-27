@@ -1,33 +1,32 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const apiKey = 'pub_408328719e83be100b603329bbbbd86ee7566'; // newsdata.io API anahtarını buraya yerleştir
-    const query = encodeURIComponent('(hukuk OR mahkeme OR boşanma)'); // Arama sorgusunu URL uyumlu hale getir
+const apiKey = 'pub_408328719e83be100b603329bbbbd86ee7566';
+const baseUrl = 'https://api.newsdata.io/v1';
 
-    // Haberleri çek
-    fetch(`https://api.newsdata.io/v1/news?apikey=${apiKey}&q=${query}&language=tr`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Haberleri çekerken bir hata oluştu.');
-            }
-            return response.json();
-        })
-        .then(data => {
-            const newsList = document.getElementById('news-list');
-            newsList.innerHTML = ''; // Önceki haberleri temizle
+async function fetchNews(keywords) {
+    try {
+        const response = await fetch(`${baseUrl}/news?apiKey=${apiKey}&q=${keywords.join(' AND ')}`);
+        const data = await response.json();
+        return data.articles;
+    } catch (error) {
+        console.error('Haberler alınırken bir hata oluştu:', error);
+        return [];
+    }
+}
 
-            data.data.forEach(article => {
-                const li = document.createElement('li');
-                const title = document.createElement('h3');
-                const description = document.createElement('p');
+async function displayNews() {
+    const keywords = ["hukuk", "Fenerbahçe", "boşanma"];
+    const newsContainer = document.getElementById('news-container');
+    const articles = await fetchNews(keywords);
 
-                title.textContent = article.title;
-                description.textContent = article.summary;
+    articles.forEach(article => {
+        const articleElement = document.createElement('div');
+        articleElement.classList.add('news-article');
+        articleElement.innerHTML = `
+            <h2>${article.title}</h2>
+            <p>${article.description}</p>
+            <a href="${article.url}" target="_blank">Haberi Oku</a>
+        `;
+        newsContainer.appendChild(articleElement);
+    });
+}
 
-                li.appendChild(title);
-                li.appendChild(description);
-                newsList.appendChild(li);
-            });
-        })
-        .catch(error => {
-            console.error('Haberleri çekerken bir hata oluştu:', error);
-        });
-});
+displayNews();
