@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.news-container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+#news-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#news-list li {
+    margin-bottom: 10px;
+}
+
+.news-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.news-description {
+    font-size: 14px;
+}
