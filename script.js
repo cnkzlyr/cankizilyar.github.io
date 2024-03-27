@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         const keywords = ["hukuk", "Fenerbahçe", "boşanma"];
         const response = await fetch(`${baseUrl}/news?apiKey=${apiKey}&q=${keywords.join(' AND ')}`);
         const data = await response.json();
-        logContainer.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`; // API yanıtını HTML içine yaz
         console.log(data); // API yanıtını konsola yazdır
         
         if(data.articles.length === 0) {
