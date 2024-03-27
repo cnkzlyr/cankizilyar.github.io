@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const apiKey = '183b6eb97e7e4ac4b5e6213afb8956ba'; // Haber API anahtarını buraya yerleştir
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-    const apiUrl = `https://newsapi.org/v2/everything?q=(hukuk OR mahkeme OR boşanma)&language=tr&apiKey=${apiKey}`;
+    const apiKey = 'pub_408328719e83be100b603329bbbbd86ee7566'; // newsdata.io API anahtarını buraya yerleştir
+    const query = encodeURIComponent('(hukuk OR mahkeme OR boşanma)'); // Arama sorgusunu URL uyumlu hale getir
 
-    fetch(proxyUrl + apiUrl)
+    // Haberleri çek
+    fetch(`https://api.newsdata.io/v1/news?q=${query}&language=tr&api_key=${apiKey}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Haberleri çekerken bir hata oluştu.');
