@@ -29,4 +29,4 @@ async function displayNews() {
     });
 }
 
-displayNews();
+document.addEventListener('DOMContentLoaded', displayNews);
