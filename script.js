@@ -1,5 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
     const apiKey = '183b6eb97e7e4ac4b5e6213afb8956ba'; // Haber API anahtarını buraya yerleştir
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+const apiUrl = `https://newsapi.org/v2/everything?q=(hukuk OR mahkeme OR boşanma)&language=tr&apiKey=${apiKey}`;
+
+fetch(proxyUrl + apiUrl)
+    .then(response => response.json())
+    .then(data => {
+        // Haberleri işle
+    })
+    .catch(error => {
+        // Hata durumunu işle
+    });
 
     // Haberleri çek
     fetch(`https://newsapi.org/v2/everything?q=(hukuk OR mahkeme OR boşanma)&language=tr&apiKey=${apiKey}`)
