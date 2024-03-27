@@ -11,25 +11,22 @@ header {
     padding: 20px 0;
 }
 
-.news-container {
-    width: 80%;
-    margin: 20px auto;
+#news-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
 }
 
-#news-list {
-    list-style-type: none;
-    padding: 0;
+.news-article {
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
 }
 
-#news-list li {
-    margin-bottom: 10px;
-}
-
-.news-title {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.news-description {
-    font-size: 14px;
+.news-article:hover {
+    transform: scale(1.05);
 }
