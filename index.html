@@ -12,6 +12,36 @@
     </header>
     <div id="news-container"></div>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            const apiKey = 'API_KEY_BURAYA_YAZ'; // Yeni API anahtarını buraya girin
+            const newsContainer = document.getElementById('news-container');
+
+            try {
+                const response = await fetch(`https://newsapi.org/v2/top-headlines?country=tr&apiKey=${apiKey}`);
+                const data = await response.json();
+
+                if (data.status === "ok") {
+                    const articles = data.articles;
+
+                    articles.forEach(article => {
+                        const articleElement = document.createElement('div');
+                        articleElement.classList.add('news-article');
+                        articleElement.innerHTML = `
+                            <h2>${article.title}</h2>
+                            <p>${article.description}</p>
+                            <a href="${article.url}" target="_blank">Haberi Oku</a>
+                        `;
+                        newsContainer.appendChild(articleElement);
+                    });
+                } else {
+                    throw new Error(data.message);
+                }
+            } catch (error) {
+                console.error('Haberler alınırken bir hata oluştu:', error);
+                newsContainer.innerHTML = '<p>Haberler alınamadı.</p>';
+            }
+        });
+    </script>
 </body>
 </html>
